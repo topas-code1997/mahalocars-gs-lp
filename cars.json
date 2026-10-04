@@ -1,0 +1,62 @@
+[
+  {
+    "name": "レクサス GS350 バージョンL",
+    "year": "2016年(H28)",
+    "mileage": "6.5万km",
+    "shaken": "2028年09月",
+    "price": "269.8万円",
+    "total": "275.8万円",
+    "status": "available",
+    "image": "images/car3.jpg"
+  },
+  {
+    "name": "レクサス GS450h バージョンL",
+    "year": "2017年(H29)",
+    "mileage": "4.7万km",
+    "shaken": "2028年10月",
+    "price": "319.8万円",
+    "total": "325.8万円",
+    "status": "available",
+    "image": "images/car4.jpg"
+  },
+  {
+    "name": "レクサス GS350 バージョンL",
+    "year": "2016年(H28)",
+    "mileage": "6.1万km",
+    "shaken": "2027年05月",
+    "price": "339.8万円",
+    "total": "345.8万円",
+    "status": "available",
+    "image": "images/car6.jpg"
+  },
+  {
+    "name": "レクサス GS300h バージョンL",
+    "year": "2016年(H28)",
+    "mileage": "9.2万km",
+    "shaken": "2027年09月",
+    "price": "269.8万円",
+    "total": "275.3万円",
+    "status": "available",
+    "image": "images/car1.jpg"
+  },
+  {
+    "name": "レクサス SC430",
+    "year": "2010年(H22)",
+    "mileage": "11万km",
+    "shaken": "2027年09月",
+    "price": "179.8万円",
+    "total": "187.5万円",
+    "status": "available",
+    "image": "images/car2.jpg"
+  },
+  {
+    "name": "レクサス NX300h Fスポーツ",
+    "year": "2018年(H30)",
+    "mileage": "7.8万km",
+    "shaken": "2027年07月",
+    "price": "299.8万円",
+    "total": "305.2万円",
+    "status": "available",
+    "image": "images/car5.jpg"
+  }
+]
