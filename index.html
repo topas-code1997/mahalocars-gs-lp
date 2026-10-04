@@ -204,6 +204,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .record-item .model{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--bronze-deep);}
   .record-item p{font-size:14px;color:var(--ink-soft);}
 
+
+  /* ---------- Flow / FAQ ---------- */
+  .flow{background:var(--paper);}
+  .flow-list{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+    max-width:1000px;margin:0 auto;list-style:none;counter-reset:step;
+  }
+  .flow-list li{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:3px;
+    padding:30px 20px 24px;counter-increment:step;
+  }
+  .flow-list li::before{
+    content:counter(step);position:absolute;left:20px;top:-16px;
+    width:32px;height:32px;border-radius:50%;background:var(--bronze);color:#fff;
+    font-family:'Shippori Mincho',serif;font-weight:700;font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .flow-list b{display:block;font-family:'Shippori Mincho',serif;font-size:16px;margin-bottom:8px;line-height:1.5;}
+  .flow-list span{display:block;font-size:13px;color:var(--ink-soft);line-height:1.8;}
+  .faq{background:var(--stone);}
+  .faq-list{max-width:760px;margin:0 auto;}
+  .faq-list details{background:var(--paper);border:1px solid var(--line);border-radius:3px;margin-bottom:10px;}
+  .faq-list summary{
+    cursor:pointer;list-style:none;padding:18px 48px 18px 20px;position:relative;
+    font-family:'Shippori Mincho',serif;font-weight:700;font-size:16px;line-height:1.6;
+  }
+  .faq-list summary::-webkit-details-marker{display:none;}
+  .faq-list summary::after{
+    content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+    color:var(--bronze-deep);font-size:22px;font-weight:400;
+  }
+  .faq-list details[open] summary::after{content:"−";}
+  .faq-list details p{padding:0 20px 18px;font-size:14px;color:var(--ink-soft);}
+  .cta-mail{border-color:var(--bronze);color:var(--bronze-deep);}
+  .cta-mail:hover{background:var(--bronze);color:#fff;}
+  .field .hint{font-size:12px;color:#8a8577;margin-top:4px;}
+  .sticky-cta{display:none;}
+
   /* ---------- Company ---------- */
   .company{background:var(--stone);}
   .company table{width:100%;max-width:640px;margin:0 auto;border-collapse:collapse;font-size:14px;}
@@ -239,6 +277,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media(max-width:860px){
     .hero{padding-top:40px;}
+    .flow-list{grid-template-columns:1fr 1fr;gap:26px 14px;}
+    body{padding-bottom:64px;}
+    .sticky-cta{
+      display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;
+      background:var(--ink);box-shadow:0 -6px 20px rgba(23,24,27,.25);
+    }
+    .sticky-cta a{
+      flex:1;text-align:center;padding:14px 8px;font-size:15px;font-weight:700;color:var(--paper);
+    }
+    .sticky-cta a:first-child{background:var(--bronze);color:var(--ink);}
+    .sticky-cta a+a{border-left:1px solid rgba(255,255,255,.2);}
     .hero .wrap{grid-template-columns:1fr;}
     .hero-photo{order:-1;}
     .stock-grid{grid-template-columns:1fr 1fr;}
@@ -250,6 +299,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:560px){
     .stock-grid{grid-template-columns:1fr;}
     .tel-btn small{display:none;}
+    .flow-list{grid-template-columns:1fr;}
     .tel-btn{padding:9px 12px;}
     .tel-btn .num{font-size:15px;white-space:nowrap;}
     .brand{font-size:16px;white-space:nowrap;}
@@ -292,6 +342,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cta-row">
         <a class="btn btn-primary" href="#stock">在庫を見る</a>
         <a class="btn btn-outline" href="tel:0753823882" onclick="trackEvent('tel_click','hero')">075-382-3882 に電話する</a>
+        <a class="btn btn-outline cta-mail" href="#contact" onclick="trackEvent('mail_click','hero')">メールで問い合わせる</a>
       </div>
       <p style="margin-top:14px;font-size:13px;color:var(--bronze-deep);">
         お電話の際は「WEB特設ページを見た」とお伝えください。
@@ -308,9 +359,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <ul>
       <li>古物商許可取得</li>
-      <li>全国陸送対応</li>
-      <li>法定整備付</li>
-      <li>保証付（3ヶ月・3,000km）</li>
+      <li>欧州車を中心に全国500台以上の販売実績</li>
+      <li>全国納車対応</li>
+      <li>整備済み車輌のみ</li>
+      <li>事故車・不正メーター車は販売しません</li>
     </ul>
   </div>
 </div>
@@ -338,6 +390,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="stock-grid" id="stock-grid">
       <!-- cars.json から JS で自動生成 -->
     </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="divider"></div>
+      <h2>ご注文から納車までの流れ</h2>
+      <p>お客様とのコンタクトを大切に、納得のいくお取引を心がけています。</p>
+    </div>
+    <ol class="flow-list">
+      <li><b>お問い合わせ</b><span>まずはお電話またはメールでご連絡ください。ご要望に応じてご回答します。</span></li>
+      <li><b>おクルマ探しのご依頼と在庫車確認</b><span>ご要望を細かくお伺いし、ご希望に近いお車をお探しします。気になるお車は在庫車両をご確認いただけます。</span></li>
+      <li><b>購入のお申し込み（ご契約）</b><span>お支払方法、必要登録書類、納車日などを打ち合わせます。</span></li>
+      <li><b>名義変更と納車</b><span>陸運支局で名義変更を行い、名義変更後にお客様のご自宅までお届けします。</span></li>
+    </ol>
   </div>
 </section>
 
@@ -387,6 +455,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="divider"></div>
+      <h2>よくあるご質問</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>事故車や不正メーターの車はありませんか？</summary>
+        <p>事故車や不正メーターなどの欠陥車は一切販売いたしません。</p></details>
+      <details><summary>整備はされていますか？</summary>
+        <p>安心の整備済み車輌のみをお届けしています。</p></details>
+      <details><summary>支払い方法は何がありますか？</summary>
+        <p>現金、各種オートローン・ショッピングローン、オートリース、クレジットカード、銀行振込をお取り扱いしています。お支払方法はご契約時の打ち合わせでご相談ください（銀行振込の場合の手数料は別途）。</p></details>
+      <details><summary>遠方ですが購入できますか？</summary>
+        <p>全国納車に対応しています。遠方の場合は可能な限り自社でお届けしますが、ご都合によっては弊社指定の陸送業者が責任を持ってお届けします。</p></details>
+      <details><summary>今乗っている車の下取り（買取）はできますか？</summary>
+        <p>乗り換えのお客様には、今お乗りのお車を精一杯の金額で高額買取いたします。</p></details>
+      <details><summary>任意保険の手続きもお願いできますか？</summary>
+        <p>各種任意保険加入の手続きもお任せください。</p></details>
+      <details><summary>納車までの期間はどのくらいですか？</summary>
+        <p>代金のお支払い確認・法定必要書類が揃い、納車準備が完了してから1週間以内に登録いたします。</p></details>
+      <details><summary>購入後のキャンセルや返品はできますか？</summary>
+        <p>商品の性質上、お客様のご都合による返品・交換・キャンセルはお受けできません。ご注文の商品と違う場合や、破損・傷みなどの品質上の問題があった場合は、商品到着後3日以内にご連絡ください（その際の返送料は当社負担）。</p></details>
+    </div>
+  </div>
+</section>
+
 <section class="company">
   <div class="wrap">
     <div class="section-head">
@@ -432,6 +527,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="tel" id="f-tel" name="電話番号" required>
         </div>
         <div class="field">
+          <label for="f-mail">メールアドレス<span style="color:#8a8577;font-size:11px;margin-left:4px;">任意</span></label>
+          <input type="email" id="f-mail" name="メールアドレス" autocomplete="email">
+          <div class="hint">メールでのご返信をご希望の方はご入力ください。</div>
+        </div>
+        <div class="field">
           <label for="f-car">ご希望の車両</label>
           <select id="f-car" name="ご希望の車両">
             <option value="">指定なし／相談したい</option>
@@ -460,6 +560,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div><a href="https://www.mahalocars.jp/" target="_blank" rel="noopener" style="color:#d8d4c7;text-decoration:underline;">公式サイト（特定商取引法に基づく表記はこちら）</a></div>
   </div>
 </footer>
+
+<div class="sticky-cta">
+  <a href="tel:0753823882" onclick="trackEvent('tel_click','sticky')">電話で相談</a>
+  <a href="#contact" onclick="trackEvent('mail_click','sticky')">メールで相談</a>
+</div>
 
 <script>
   // Google広告・GTM へのコンバージョン通知
