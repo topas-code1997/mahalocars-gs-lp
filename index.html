@@ -133,14 +133,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .divider{width:40px;height:2px;background:var(--bronze);margin:0 auto 18px;}
 
   /* ---------- Price note ---------- */
-  .price-note{background:var(--stone);}
+  .price-note{background:var(--stone);padding:56px 0;}
   .price-note .box{
-    max-width:760px;margin:0 auto;text-align:center;
-    background:var(--paper);border:1px solid var(--line);border-radius:3px;
-    padding:40px 32px;
+    max-width:860px;margin:0 auto;text-align:center;position:relative;
+    background:var(--ink);color:var(--paper);
+    border:2px solid var(--bronze);border-radius:3px;
+    padding:44px 36px 40px;
+    box-shadow:0 20px 44px -18px rgba(23,24,27,.55);
   }
-  .price-note .box h3{font-size:21px;margin-bottom:14px;}
-  .price-note .box p{color:var(--ink-soft);font-size:15px;}
+  .price-note .box::before{
+    content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);
+    width:56px;height:56px;border-radius:50%;
+    background:var(--bronze) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317181b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v6M12 17h.01'/%3E%3Ccircle cx='12' cy='12' r='9.5'/%3E%3C/svg%3E") center/30px no-repeat;
+    border:4px solid var(--stone);
+  }
+  .price-note .box h3{
+    font-size:clamp(24px,3.4vw,32px);margin-bottom:18px;color:var(--paper);
+    display:inline-block;padding-bottom:10px;border-bottom:2px solid var(--bronze);
+  }
+  .price-note .box p{color:var(--stone);font-size:16px;}
+  .price-note .box p strong{
+    display:block;color:#e3c08a;font-size:clamp(18px,2.6vw,24px);
+    font-family:'Shippori Mincho',serif;line-height:1.6;margin-bottom:10px;
+  }
 
   /* ---------- Inventory ---------- */
   .stock-grid{
@@ -305,7 +320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="box">
       <h3 class="serif">表示価格について</h3>
       <p>
-        掲載価格より、お得にご案内できる場合がございます。<br>
+        <strong>掲載価格より、お得にご案内できる場合がございます。</strong>
         具体的な金額は車両ごとに異なるため、お問い合わせの際に個別にご案内いたします。<br>
         まずはお気軽にご相談ください。
       </p>
