@@ -77,15 +77,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ---------- Hero ---------- */
   .hero{
-    display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:48px;
     padding:64px 0 56px;
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:48px;
   }
   .hero .tag{
     font-size:13px;color:var(--bronze-deep);margin-bottom:18px;font-weight:500;
     border-left:2px solid var(--bronze);padding-left:10px;
   }
   .hero h1{
-    font-size:clamp(30px,4vw,44px);
+    font-size:clamp(24px,3.2vw,40px);
     line-height:1.5;
     margin-bottom:22px;
   }
@@ -221,7 +223,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 
   @media(max-width:860px){
-    .hero{grid-template-columns:1fr;padding-top:40px;}
+    .hero{padding-top:40px;}
+    .hero .wrap{grid-template-columns:1fr;}
     .hero-photo{order:-1;}
     .stock-grid{grid-template-columns:1fr 1fr;}
     .expertise .grid2{grid-template-columns:1fr;gap:28px;}
@@ -232,6 +235,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:560px){
     .stock-grid{grid-template-columns:1fr;}
     .tel-btn small{display:none;}
+    .tel-btn{padding:9px 12px;}
+    .tel-btn .num{font-size:15px;white-space:nowrap;}
+    .brand{font-size:16px;white-space:nowrap;}
     .contact-box{padding:28px 20px;}
   }
   @media (prefers-reduced-motion: reduce){
@@ -258,7 +264,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <section class="hero">
-  <div class="wrap" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;">
+  <div class="wrap">
     <div>
       <div class="tag">京都・レクサス専門店 マハロカーズ</div>
       <h1>生産終了モデルだからこそ、<br>知り尽くした店で選ぶ。</h1>
